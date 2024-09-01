@@ -12,7 +12,7 @@ mount_checkout="$(plugin_read_config MOUNT_CHECKOUT "false")"
 workdir=''
 
 expand_headers_on_error() {
-  echo "^^^ +++"
+  echo "^^^ +++ L15"
 }
 trap expand_headers_on_error ERR
 
@@ -357,7 +357,7 @@ fi
 
 if [[ $dependency_exitcode -ne 0 ]] ; then
   # Dependent services failed to start.
-  echo "^^^ +++"
+  echo "^^^ +++ L360"
   echo "+++ 🚨 Failed to start dependencies"
 
   if [[ -n "${BUILDKITE_AGENT_ACCESS_TOKEN:-}" ]] ; then
@@ -486,7 +486,7 @@ if [[ $exitcode = "TRAP" ]]; then
   # command failed due to cancellation signal, make sure there is an error but no further output
   exitcode=-1
 elif [[ $exitcode -ne 0 ]] ; then
-  echo "^^^ +++"
+  echo "^^^ +++ L489"
   echo "+++ :warning: Failed to run command, exited with $exitcode, run params:"
   echo "${run_params[@]}"
 fi
